@@ -1,0 +1,312 @@
+/* =========================
+   IMPORTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   TIPOGRAFÍAS GLOBALES
+========================= */
+
+body, p, button, input, textarea {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* =========================
+   LAYOUT GENERAL
+========================= */
+
+header {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.oculto {
+    display: none;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+
+.encabezado {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    font-family: Arvo;
+}
+
+.encabezadoTienda {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menuTienda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.menuTienda li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.menuTienda li a:hover {
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.logoTienda {
+    width: 50px;
+}
+
+/* =========================
+   GALERÍA / PRODUCTOS
+========================= */
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.imagenProducto {
+    width: 100%;
+    max-width: 180px;
+    height: 180px;
+    object-fit: contain; /* no deforma */
+    border-radius: 8px;
+    margin: 0 auto 10px;
+    display: block;
+}
+.infoProducto {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   ACCIONES / BOTONES
+========================= */
+
+.accionesProducto {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.accionesProducto button {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.accionesProducto button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btnInfo {
+    background-color: #eaeaea;
+    color: #333;
+}
+
+.btnInfo:hover {
+    background-color: #d5d5d5;
+}
+
+.btnComprar {
+    background-color: #39c3fe;
+    color: #fff;
+}
+
+.btnComprar:hover {
+    background-color: #2dbef3;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.buscadorSeccion {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#buscador {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #8db6fd;
+    border-radius: 25px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#buscador:focus {
+    border-color: #293ee3;
+    box-shadow: 0 0 5px rgba(35,81,149,0.5);
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.mainContacto {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.mainContacto h2,
+.mainTienda h2,
+.mainTienda h3 {
+    font-family: 'Lora', serif;
+}
+
+.formContacto {
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formContacto input,
+.formContacto textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.formContacto input:focus,
+.formContacto textarea:focus {
+    outline: none;
+    border-color: #39c3fe;
+    box-shadow: 0 0 5px rgba(57,195,254,0.4);
+}
+
+.formContacto button {
+    padding: 14px;
+    border-radius: 8px;
+    background-color: #39c3fe;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================
+   CARRITO FLOTANTE
+========================= */
+
+.carritoFlotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #39c3fe;
+    color: #fff;
+    border: none;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    z-index: 1000;
+}
+
+.contadorCarrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff3b3b;
+    color: #fff;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: lightblue;
+    padding: 10px;
+    text-align: center;
+    font-family: Arvo;
+    margin-top: 20px;
+}
+
+.redesSociales {
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    gap: 15px;
+    justify-content: center;
+    list-style: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+}
