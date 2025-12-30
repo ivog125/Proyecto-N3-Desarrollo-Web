@@ -6,457 +6,105 @@
     <title>Tienda Ross - Productos</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="../Estilos/style.css">
 </head>
+
 <body>
-    <header class="encabezadoTienda" id="encabezadoTienda">
-        <nav>
-            <ul class="menuTienda">
-                <li>
-                    <a href="../index.html">
-                        <img src="../assets/TIENDA ROSS.jpeg" alt="logoTienda" class="logoTienda">
-                    </a>
-                </li>
-                <li><a href="../pages/tienda.html">Productos</a></li>
-                <li><a href="../pages/contacto.html">Contacto</a></li>
-                <li><a href="../pages/nosotros.html">Saber más</a></li>
-            </ul>
-        </nav>
-    </header>
-        <main class="mainTienda">
-        <h2>Galeria de Productos</h2>
-        <section>
-            <p>Aqui podras ver una variedad de productos disponibles en nuestro almacen. Explora nuestra coleccion y encuentra la camiseta perfecta para ti.</p>
-        </section>
-        <section class="buscadorSeccion">
-            <input type="text" id="buscador" placeholder="Buscar producto..." />
-        </section>
-        <section class="galeria">
-            <div class="producto">
-                <img src="../assets/ACEITE OLV.jpeg" class="imagenProducto">
-                <h3>Aceite de Oliva Virgen Extra 1000cc - Tutuna</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="1">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
 
-            <div class="producto">
-                <img src="../assets/ACID MAL.jpeg" class="imagenProducto">
-                <h3>Ácido Málico - Línea Depurativa - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="2">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+<header class="encabezadoTienda">
+    <nav>
+        <ul class="menuTienda">
+            <li>
+                <a href="../index.html">
+                    <img src="../assets/TIENDA ROSS.jpeg" alt="logoTienda" class="logoTienda">
+                </a>
+            </li>
+            <li><a href="../pages/tienda.html">Productos</a></li>
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+            <li><a href="../pages/nosotros.html">Saber más</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <div class="producto">
-                <img src="../assets/AGUA MAR AZ.jpeg" class="imagenProducto">
-                <h3>Agua de Mar Botella Vidrio Azul Solarizable 1000cc - VitalMar</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="3">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+<main class="mainTienda">
 
-            <div class="producto">
-                <img src="../assets/AGUA MAR TRANS.jpeg" class="imagenProducto">
-                <h3>Agua de Mar Botella Vidrio 1000cc - VitalMar</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="4">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+    <h2 class="tituloTienda">Galería de Productos</h2>
 
-            <div class="producto">
-                <img src="../assets/AGUA OXIGENADA.jpeg" class="imagenProducto">
-                <h3>Agua Oxigenada 3% 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="5">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+    <section>
+        <p>
+            Aquí podrás ver una variedad de productos disponibles en nuestro almacén.
+            Explora nuestra colección y encuentra el producto ideal para vos.
+        </p>
+    </section>
 
-            <div class="producto">
-                <img src="../assets/ALGAS ESP.jpeg" class="imagenProducto">
-                <h3>Algas Espirulina - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="6">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+    <section class="buscadorSeccion">
+        <input type="text" id="buscador" placeholder="Buscar producto..." />
+    </section>
 
-            <div class="producto">
-                <img src="../assets/ALTAMISA.jpeg" class="imagenProducto">
-                <h3>Alta Misa Extracto Líquido 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="7">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+    <!-- CONTENEDOR DE PRODUCTOS -->
 
-            <div class="producto">
-                <img src="../assets/ARCILLA.jpeg" class="imagenProducto">
-                <h3>Arcilla Serrana - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="8">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
+    <section class="galeria" id="galeriaProductos">
 
-            <div class="producto">
-                <img src="../assets/AZU MASC.jpeg" class="imagenProducto">
-                <h3>Azúcar Mascabo - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="9">Comprar</button>
-                </div>
-                <div class="infoProducto oculto">
-                    <p>Información del producto.</p>
-                </div>
-            </div>
-            <div class="producto">
-                <img src="../assets/BIDON AGUA MAR.jpeg" class="imagenProducto">
-                <h3>Agua de Mar Bidón 5lts - VitalMar</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="10">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+        <!-- Los productos se generan desde JavaScript -->
 
-            <div class="producto">
-                <img src="../assets/CACAO.jpeg" class="imagenProducto">
-                <h3>Cacao Amargo en Polvo - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="11">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+    </section>
 
-            <div class="producto">
-                <img src="../assets/CARDO MARIANO.jpeg" class="imagenProducto">
-                <h3>Cardo Mariano Extracto Líquido 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="12">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+    <section>
+        <p>
+            Para realizar una compra u obtener más información, no dudes en contactarnos
+            a través de la página de contacto.
+        </p>
+    </section>
 
-            <div class="producto">
-                <img src="../assets/DESO TT LAV.jpeg" class="imagenProducto">
-                <h3>Desodorante Natural Tea Tree y Lavanda - Clo Clo</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="13">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+</main>
 
-            <div class="producto">
-                <img src="../assets/DESO TT ROM LIM.jpeg" class="imagenProducto">
-                <h3>Desodorante Natural Tea Tree, Romero y Limón - Clo Clo</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="14">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+<footer>
+    <p>&copy; 2024 Tienda Ross. Todos los derechos reservados.</p>
+    <h3>Creado por IvoG12</h3>
 
-            <div class="producto">
-                <img src="../assets/DESODORANTE TTYM.jpeg" class="imagenProducto">
-                <h3>Desodorante Natural Tea Tree y Manzanilla - Clo Clo</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="15">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+    <nav>
+        <ul class="redesSociales">
+            <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="../assets/Instagram_logo_2022.svg.png" alt="Instagram">
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <img src="../assets/2023_Facebook_icon.svg.png" alt="Facebook">
+                </a>
+            </li>
+            <li>
+                <a href="https://www.web.whatsapp.com/" target="_blank">
+                    <img src="/assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="WhatsApp">
+                </a>
+            </li>
+        </ul>
+    </nav>
+</footer>
 
-            <div class="producto">
-                <img src="../assets/ESP VEG.jpeg" class="imagenProducto">
-                <h3>Esponja Vegetal x10 unidades</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="16">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+<!-- CARRITO -->
 
-            <div class="producto">
-                <img src="../assets/EUCALIPTO.jpeg" class="imagenProducto">
-                <h3>Esencia de Eucalipto 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="17">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+<a href="/pages/carrito.html" class="carritoFlotante">
+    🛒
+    <span class="contadorCarrito">0</span>
+</a>
 
-            <div class="producto">
-                <img src="../assets/LEVADURA.jpeg" class="imagenProducto">
-                <h3>Levadura Nutricional - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="18">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+<!-- MODAL -->
 
-            <div class="producto">
-                <img src="../assets/MORINGA.jpeg" class="imagenProducto">
-                <h3>Moringa Extracto Líquido 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="19">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modal-titulo"></h2>
+    <p id="modal-descripcion"></p>
+    <h4>¿Cómo se consume?</h4>
+    <p id="modal-consumo"></p>
+  </div>
+</div>
 
-            <div class="producto">
-                <img src="../assets/MORT.jpeg" class="imagenProducto">
-                <h3>Mortero de Mármol</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="20">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
+<!-- SCRIPTS -->
 
-            <div class="producto">
-                <img src="../assets/MOSTZ.jpeg" class="imagenProducto">
-                <h3>Granos de Mostaza - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="21">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/ORMUS.jpeg" class="imagenProducto">
-                <h3>Ormus Oro Monoatómico 500ml - VitalMar</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="22">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/PIM CAY.jpeg" class="imagenProducto">
-                <h3>Pimienta de Cayena - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="23">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/PLAT COL.jpeg" class="imagenProducto">
-                <h3>Plata Coloidal 200cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="24">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/PROPOLEO.jpeg" class="imagenProducto">
-                <h3>Solución de Propóleo 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="25">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/SAL MAR BOLSA.jpeg" class="imagenProducto">
-                <h3>Sal de Mar Bolsa 500grs - VitalMar</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="26">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/SAL MAR.jpeg" class="imagenProducto">
-                <h3>Sal de Mar Frasco 125grs - VitalMar</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="27">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/SUICO.jpeg" class="imagenProducto">
-                <h3>Suico Extracto Líquido 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="28">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/SULF MAG.jpeg" class="imagenProducto">
-                <h3>Sulfato de Magnesio - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="29">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/TON HERB.jpeg" class="imagenProducto">
-                <h3>Tónico Herbario - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="30">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/VALERIANA.jpeg" class="imagenProducto">
-                <h3>Valeriana Extracto Líquido 250cc - Prama</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="31">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/YERBA.jpeg" class="imagenProducto">
-                <h3>Yerba Mate Secado Barbacuá 500grs - Caballo Negro</h3>
-                <p>Precio:</p>
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="32">Comprar</button>
-                </div>
-                <div class="infoProducto oculto"><p>Información del producto.</p></div>
-            </div>
-
-            <div class="producto">
-                <img src="../assets/ZEOLITA.jpeg" alt="Zeolita Extracto Líquido" class="imagenProducto">
-                <h3>Zeolita Extracto Líquido 250cc - Línea Depurativa - Prama</h3>
-                <p>Precio:</p>
-
-                <div class="accionesProducto">
-                    <button class="btnInfo">Saber más</button>
-                    <button class="btnComprar" data-id="33">Comprar</button>
-                </div>
-
-                <div class="infoProducto oculto">
-                <p><strong>Descripción:</strong> Ayuda a eliminar toxinas del organismo.</p>
-                <p><strong>Contenido:</strong> 250cc</p>
-                <p><strong>Modo de uso:</strong> Según indicación profesional.</p>
-                </div>
-            </div>
-            
-           
-           
-        </section>
-
-        <section>
-            <p>Para realizar una compra o obtener mas informacion sobre nuestros productos, no dudes en contactarnos a traves de la pagina de contacto.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Almacen de Camisetas. Todos los derechos reservados.</p>
-        <h3>Creado por IvoG12</h3>
-
-        <nav>
-            <ul  class="redesSociales">
-                <li>
-                    <a href="https://www.instagram.com/" target="_blank">
-                        <img src="../assets/Instagram_logo_2022.svg.png" alt="logo de Instagram" class="">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/" target="_blank">
-                        <img src="../assets/2023_Facebook_icon.svg.png" alt="logo de Facebook" class="">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.web.whatsapp.com/" target="_blank">
-                        <img src="s" alt="logo de WhatsApp" class="">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </footer>
-    
-    <a href="/pages/carrito.html" class="carritoFlotante">
-        🛒
-        <span class="contadorCarrito">0</span>
-    </a>
-</button>
-</body>
+<script src="../js/productos.js"></script>
+<script src="../js/main.js"></script>
 </html>
