@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ===============================
+    // VARIABLES
+    // ===============================
     const galeria = document.querySelector(".galeria");
     const modal = document.getElementById("modal");
     const titulo = document.getElementById("modal-titulo");
@@ -8,6 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.querySelector(".close");
     const buscador = document.getElementById("buscador");
 
+    let productosTienda = []; // productos cargados desde JSON
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // ===============================
+    // FUNCION MOSTRAR PRODUCTOS
+    // ===============================
     function mostrarProductos(productos) {
         galeria.innerHTML = "";
 
@@ -35,50 +44,92 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 🔹 Cargar productos desde productos.json
+    // ===============================
+    // FUNCION AGREGAR AL CARRITO
+    // ===============================
+    function agregarAlCarrito(id) {
+        const producto = productosTienda.find(p => p.id === id);
+        if (!producto) return;
+
+        const item = carrito.find(p => p.id === id);
+
+        if (item) {
+            item.cantidad++;
+        } else {
+            carrito.push({
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: Number(producto.precio),
+                imagen: producto.imagen,
+                cantidad: 1
+            });
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarContador();
+    }
+
+    // ===============================
+    // FUNCION ACTUALIZAR CONTADOR
+    // ===============================
+    function actualizarContador() {
+        const contador = document.querySelector(".contadorCarrito");
+        if (!contador) return;
+        const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+        contador.textContent = total;
+    }
+
+    actualizarContador(); // inicializa contador
+
+    // ===============================
+    // CARGAR PRODUCTOS DESDE JSON
+    // ===============================
     fetch('../productos.json')
         .then(res => res.json())
         .then(productos => {
+            productosTienda = productos;
+            mostrarProductos(productosTienda);
 
-            // Mostrar todos los productos inicialmente
-            mostrarProductos(productos);
-
-            // Buscador
+            // ===============================
+            // BUSCADOR
+            // ===============================
             buscador.addEventListener("input", (e) => {
                 const texto = e.target.value.toLowerCase();
-                const productosFiltrados = productos.filter(producto =>
+                const productosFiltrados = productosTienda.filter(producto =>
                     producto.nombre.toLowerCase().includes(texto)
                 );
                 mostrarProductos(productosFiltrados);
             });
-
-            // Modal y botones
-            galeria.addEventListener("click", (e) => {
-
-                if (e.target.classList.contains("btn-saber-mas")) {
-                    const btn = e.target;
-                    titulo.textContent = btn.dataset.titulo;
-                    descripcion.textContent = btn.dataset.descripcion;
-                    consumo.textContent = btn.dataset.consumo;
-                    modal.style.display = "block";
-                }
-
-                if (e.target.classList.contains("btnComprar")) {
-                    const id = e.target.dataset.id;
-                    agregarAlCarrito(id);
-                }
-
-            });
-
-            closeBtn.addEventListener("click", () => {
-                modal.style.display = "none";
-            });
-
-            window.addEventListener("click", (e) => {
-                if (e.target === modal) modal.style.display = "none";
-            });
-
         })
         .catch(err => console.error("No se pudieron cargar los productos:", err));
 
+    // ===============================
+    // MODAL Y BOTONES
+    // ===============================
+    galeria.addEventListener("click", (e) => {
+
+        // Modal "Saber más"
+        if (e.target.classList.contains("btn-saber-mas")) {
+            const btn = e.target;
+            titulo.textContent = btn.dataset.titulo;
+            descripcion.textContent = btn.dataset.descripcion;
+            consumo.textContent = btn.dataset.consumo;
+            modal.style.display = "block";
+        }
+
+        // Botón "Comprar"
+        if (e.target.classList.contains("btnComprar")) {
+            const id = e.target.dataset.id;
+            agregarAlCarrito(id);
+        }
+    });
+
+    // Cerrar modal
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    });
 });
