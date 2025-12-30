@@ -144,3 +144,38 @@ function actualizarContador() {
 // ===============================
 actualizarContador();
 renderCarrito();
+
+// ==================
+//  BOTON COMPRAR
+//===================
+
+const btnComprar = document.getElementById("btnComprar");
+
+if (btnComprar) {
+    btnComprar.addEventListener("click", () => {
+        if (carrito.length === 0) {
+            alert("Tu carrito está vacío");
+            return;
+        }
+
+        let mensaje = "Hola! 👋 Quiero realizar el siguiente pedido:%0A%0A";
+        mensaje += "🛒 *Pedido Tienda Ross*%0A";
+
+        let total = 0;
+
+        carrito.forEach(prod => {
+            const subtotal = prod.precio * prod.cantidad;
+            total += subtotal;
+
+            mensaje += `- ${prod.nombre} x${prod.cantidad} — $${subtotal}%0A`;
+        });
+
+        mensaje += `%0A💰 *Total: $${total}*%0A%0A`;
+        mensaje += "Quedo atento/a para coordinar el pago y la entrega. ¡Gracias!";
+
+        const telefono = "5491138677830"; 
+        const url = `https://wa.me/${telefono}?text=${mensaje}`;
+
+        window.open(url, "_blank");
+    });
+}
