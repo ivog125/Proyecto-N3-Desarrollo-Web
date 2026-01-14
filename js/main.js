@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===============================
     // VARIABLES
     // ===============================
+    
     const galeria = document.querySelector(".galeria");
     const modal = document.getElementById("modal");
     const titulo = document.getElementById("modal-titulo");
@@ -11,12 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.querySelector(".close");
     const buscador = document.getElementById("buscador");
 
-    let productosTienda = []; // productos cargados desde JSON
+    let productosTienda = []; 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     // ===============================
     // FUNCION MOSTRAR PRODUCTOS
     // ===============================
+    
     function mostrarProductos(productos) {
         galeria.innerHTML = "";
 
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===============================
     // FUNCION AGREGAR AL CARRITO
     // ===============================
+
     function agregarAlCarrito(id) {
         const producto = productosTienda.find(p => p.id === id);
         if (!producto) return;
@@ -72,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===============================
     // FUNCION ACTUALIZAR CONTADOR
     // ===============================
+
     function actualizarContador() {
         const contador = document.querySelector(".contadorCarrito");
         if (!contador) return;
@@ -85,11 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===============================
     // CARGAR PRODUCTOS DESDE JSON
     // ===============================
+
     fetch('../productos.json')
         .then(res => res.json())
         .then(productos => {
 
             // ORDEN ALFABETICO A–Z
+
             productosTienda = productos.sort((a, b) =>
                 a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" })
             );
@@ -99,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // ===============================
             // BUSCADOR
             // ===============================
+
             buscador.addEventListener("input", (e) => {
                 const texto = e.target.value.toLowerCase();
 
@@ -114,9 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===============================
     // MODAL Y BOTONES
     // ===============================
+
     galeria.addEventListener("click", (e) => {
 
         // Modal "Saber más"
+
         if (e.target.classList.contains("btn-saber-mas")) {
             const btn = e.target;
             titulo.textContent = btn.dataset.titulo;
@@ -135,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===============================
     // CERRAR MODAL
     // ===============================
+
     closeBtn.addEventListener("click", () => {
         modal.style.display = "none";
     });

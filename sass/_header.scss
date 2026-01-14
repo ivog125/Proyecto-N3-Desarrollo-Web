@@ -1,0 +1,35 @@
+@use "variables" as v;
+
+.encabezadoTienda {
+    background-color: v.$Blanco;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    .menuTienda {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        list-style: none;
+
+        .logoTienda {
+            width: 50px;
+        }
+
+    }
+
+    .menuTienda li a {
+        text-decoration: none;
+        color: v.$Gris;
+        font-weight: 500;
+        padding: 5px 10px;
+        transition: 0.3s;
+    }
+
+    .menuTienda li a:hover {
+        background-color: v.$Gris;
+        color: v.$Blanco;
+        border-radius: 5px;
+    }
+}
+
+

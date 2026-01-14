@@ -1,0 +1,38 @@
+@use "variables" as v;
+
+footer {
+    background-color: lightblue;
+    padding: 10px;
+    text-align: center;
+    font-family: Arvo;
+    margin-top: 20px;
+
+    .redesSociales {
+        display: grid;
+        grid-template-columns: repeat(3, 40px);
+        gap: 15px;
+        justify-content: center;
+        list-style: none;
+        
+            li {
+            display: inline-block; // asegura que cada item se comporte como bloque pequeño
+
+            a {
+            display: inline-block;
+
+            img {
+                width: 30px;       // tamaño fijo del icono
+                height: 30px;
+                object-fit: contain; // mantiene proporción
+                display: block;
+                transition: 0.3s;
+
+                &:hover {
+                transform: scale(1.1); // efecto hover opcional
+                }
+            }
+            }
+        }
+    }
+}
+

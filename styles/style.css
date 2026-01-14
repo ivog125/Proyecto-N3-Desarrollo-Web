@@ -1,0 +1,458 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.mainTienda p, .mainTienda h2, .mainTienda h3 {
+  font-family: "Lora", serif;
+  text-align: center;
+}
+.mainTienda .buscadorSeccion {
+  text-align: center;
+  margin: 20px 0;
+}
+.mainTienda .buscadorSeccion #buscador {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 2px solid #39c3fe;
+  border-radius: 25px;
+  outline: none;
+}
+.mainTienda .buscadorSeccion #buscador:focus {
+  border-color: #293ee3;
+  transition: 0.3s;
+  box-shadow: 0 0 5px rgba(35, 81, 149, 0.5);
+}
+.mainTienda .galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mainTienda .galeria .producto {
+  background-color: #f8f8f8;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mainTienda .galeria .producto .imagenProducto {
+  width: 100%;
+  max-width: 180px;
+  height: 180px;
+  object-fit: contain; /* no deforma */
+  border-radius: 8px;
+  margin: 0 auto 10px;
+  display: block;
+}
+.mainTienda .galeria .producto .infoProducto {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.mainTienda .galeria .producto .imagenProducto h3, .mainTienda .galeria .producto p {
+  font-size: 1rem;
+  margin: 5px 0;
+  text-align: center;
+}
+.mainTienda .galeria .producto .accionesProducto {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.mainTienda .galeria .producto .accionesProducto button {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.mainTienda .galeria .producto .accionesProducto button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.mainTienda .galeria .producto .btnInfo {
+  background-color: #eaeaea;
+  color: #333;
+}
+.mainTienda .galeria .producto .btnInfo:hover {
+  background-color: #d5d5d5;
+}
+.mainTienda .galeria .producto .btnComprar {
+  background-color: #39c3fe;
+  color: #fff;
+}
+.mainTienda .galeria .producto .btnComprar:hover {
+  background-color: #2dbef3;
+}
+
+footer {
+  background-color: lightblue;
+  padding: 10px;
+  text-align: center;
+  font-family: Arvo;
+  margin-top: 20px;
+}
+footer .redesSociales {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  gap: 15px;
+  justify-content: center;
+  list-style: none;
+}
+footer .redesSociales li {
+  display: inline-block;
+}
+footer .redesSociales li a {
+  display: inline-block;
+}
+footer .redesSociales li a img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  transition: 0.3s;
+}
+footer .redesSociales li a img:hover {
+  transform: scale(1.1);
+}
+
+.encabezadoTienda {
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.encabezadoTienda .menuTienda {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+.encabezadoTienda .menuTienda .logoTienda {
+  width: 50px;
+}
+.encabezadoTienda .menuTienda li a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+.encabezadoTienda .menuTienda li a:hover {
+  background-color: #444;
+  color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.mainCarrito h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.mainCarrito {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.mainCarrito .carritoItem {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border-bottom: 1px solid #f8f8f8;
+}
+.mainCarrito .carritoItem img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+.mainCarrito .carritoInfo {
+  flex: 1;
+}
+.mainCarrito .carritoInfo h4 {
+  margin: 0 0 5px;
+}
+.mainCarrito .controlesCantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mainCarrito .controlesCantidad button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background: #000;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.controlesCantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlesCantidad button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background: #000;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.controlesCantidad button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnEliminar {
+  background: #ff3b3b;
+  color: #f8f8f8;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btnEliminar:hover {
+  opacity: 0.8;
+}
+
+.resumenCarrito {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resumenCarrito h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.accionesCarrito {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnComprarFinal {
+  background: #293ee3;
+  color: #f8f8f8;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btnComprarFinal:hover {
+  background: #293ee3;
+}
+
+/* Botón Seguir comprando */
+.btnSeguir {
+  background: #ffffff;
+  color: #000;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btnSeguir:hover {
+  background: #f8f8f8;
+}
+
+.btnVaciar {
+  background: #ff3b3b;
+  color: #f8f8f8;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnVaciar:hover {
+  background: #ff3b3b;
+}
+
+.subtotalProducto {
+  margin-top: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.resumenCarrito h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.resumenCarrito h2 span {
+  font-weight: 800;
+}
+
+.carritoFlotante {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #39c3fe;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 6px 15px #000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.carritoFlotante:hover {
+  transform: scale(1.1);
+  background-color: rgb(82.3718592965, 202.6884422111, 254.1281407035);
+  color: #ffffff;
+}
+.carritoFlotante .contadorCarrito {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  background-color: #ff3b3b;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 2px solid #39c3fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carritoFlotante {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #39c3fe;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 6px 15px #000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.carritoFlotante:hover {
+  transform: scale(1.1);
+  background-color: rgb(82.3718592965, 202.6884422111, 254.1281407035);
+  color: #ffffff;
+}
+.carritoFlotante .contadorCarrito {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  background-color: #ff3b3b;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 2px solid #39c3fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContacto h2,
+.mainTienda h2,
+.mainTienda h3 {
+  font-family: "Lora", serif;
+}
+
+.formContacto {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px #d5d5d5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.formContacto .formContacto input,
+.formContacto .formContacto textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+}
+.formContacto .formContacto input:focus,
+.formContacto .formContacto textarea:focus {
+  outline: none;
+  border-color: #39c3fe;
+  box-shadow: 0 0 5px rgba(57, 195, 254, 0.4);
+}
+.formContacto .formContacto button {
+  padding: 14px;
+  border-radius: 8px;
+  background-color: #39c3fe;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

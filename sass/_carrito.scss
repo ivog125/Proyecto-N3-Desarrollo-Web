@@ -1,0 +1,222 @@
+@use "variables" as v;
+
+.mainCarrito h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.mainCarrito {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+
+    .carritoItem {
+        display: grid;
+        grid-template-columns: 80px 1fr auto auto;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        border-bottom: 1px solid v.$Blanco;
+    }
+
+    .carritoItem img {
+        width: 80px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .carritoInfo {
+        flex: 1;
+    }
+
+    .carritoInfo h4 {
+        margin: 0 0 5px;
+    }
+
+    .controlesCantidad {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .controlesCantidad button {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        background: v.$NegroOscuro;
+        color: v.$BlancoFuerte;
+        border-radius: 5px;
+    }
+}
+
+
+
+
+.controlesCantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controlesCantidad button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background: v.$NegroOscuro;
+    color: v.$BlancoFuerte;
+    border-radius: 5px;
+}
+
+.controlesCantidad button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btnEliminar {
+    background: v.$Rojo;
+    color: v.$Blanco;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnEliminar:hover {
+    opacity: 0.8;
+}
+
+.resumenCarrito {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid v.$Blanco;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resumenCarrito h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.accionesCarrito {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btnComprarFinal {
+    background: v.$AzulFrancia;
+    color: v.$Blanco;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btnComprarFinal:hover {
+    background: v.$AzulFrancia;
+}
+
+/* Botón Seguir comprando */
+
+.btnSeguir {
+    background: v.$BlancoFuerte;
+    color: v.$NegroOscuro;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btnSeguir:hover {
+    background: v.$Blanco;
+}
+
+.btnVaciar {
+    background: v.$Rojo;
+    color: v.$Blanco;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btnVaciar:hover {
+    background: v.$Rojo;
+}
+
+.subtotalProducto {
+    margin-top: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: v.$Gris;
+}
+
+.resumenCarrito h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.resumenCarrito h2 span {
+    font-weight: 800;
+}
+
+.carritoFlotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: v.$CelesteOscuro;
+    color: v.$BlancoFuerte;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 6px 15px v.$NegroOscuro;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1); 
+        background-color: lighten(v.$CelesteOscuro, 5%); 
+        color: v.$BlancoFuerte;
+    }
+
+    .contadorCarrito {
+        position: absolute;
+        top: 0; 
+        right: 0;
+        width: 22px;
+        height: 22px;
+        background-color: v.$Rojo;
+        color: v.$BlancoFuerte;
+        font-size: 11px;
+        font-weight: bold;
+        border-radius: 50%;
+        border: 2px solid v.$CelesteOscuro;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

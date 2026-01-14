@@ -1,0 +1,116 @@
+@use "variables" as v;
+
+.mainTienda {
+    p, h2, h3 {
+        font-family: v.$Lora;
+        text-align: center;
+    }
+
+    .buscadorSeccion {
+        text-align: center;
+        margin: 20px 0;
+        #buscador {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px 15px;
+            border: 2px solid v.$CelesteOscuro;
+            border-radius: 25px;
+            outline: none;
+        }
+        #buscador:focus {
+            border-color: #293ee3;
+            transition: 0.3s;
+            box-shadow: 0 0 5px rgba(35,81,149,0.5);
+        }
+    }
+    
+    .galeria {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+
+        .producto {
+            background-color: v.$Blanco;
+            border: 1px solid v.$GrisClarito;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; 
+            width: 100%; 
+            box-sizing: border-box;
+
+            .imagenProducto {
+                width: 100%;
+                max-width: 180px;
+                height: 180px;
+                object-fit: contain; /* no deforma */
+                border-radius: 8px;
+                margin: 0 auto 10px;
+                display: block;
+            }
+
+            .infoProducto {
+                margin-top: 10px;
+                padding: 10px;
+                background-color: v.$BlancoFuerte;
+                border-radius: 5px;
+                font-size: 0.9rem;
+                width: 100%;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .imagenProducto h3, p {
+                font-size: 1rem;
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            .accionesProducto {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .accionesProducto button {
+                flex: 1;
+                padding: 10px 12px;
+                border: none;
+                border-radius: 6px;
+                font-size: 0.95rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            .accionesProducto button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            }
+
+            .btnInfo {
+                background-color: #eaeaea;
+                color: #333;
+            }
+
+            .btnInfo:hover {
+                background-color: #d5d5d5;
+            }
+
+            .btnComprar {
+                background-color: #39c3fe;
+                color: #fff;
+            }
+
+            .btnComprar:hover {
+                background-color: #2dbef3;
+            }
+        }
+    }
+}

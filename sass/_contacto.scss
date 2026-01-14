@@ -1,0 +1,40 @@
+@use "variables" as v;
+
+.mainContacto h2,
+.mainTienda h2,
+.mainTienda h3 {
+    font-family: 'Lora', serif;
+}
+
+.formContacto {
+    background-color: v.$BlancoFuerte;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px v.$GrisClarito;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .formContacto input,
+    .formContacto textarea {
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid v.$BlancoFuerte;
+    }
+
+    .formContacto input:focus,
+    .formContacto textarea:focus {
+        outline: none;
+        border-color: v.$CelesteOscuro;
+        box-shadow: 0 0 5px v.$AzulGrisacio;
+    }
+
+    .formContacto button {
+        padding: 14px;
+        border-radius: 8px;
+        background-color: v.$CelesteOscuro;
+        color: v.$BlancoFuerte;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
