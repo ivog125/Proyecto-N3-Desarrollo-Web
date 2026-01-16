@@ -31,31 +31,28 @@ function renderCarrito() {
     div.className = "carritoItem";
 
     div.innerHTML = `
-        <img src="${prod.imagen}" alt="${prod.nombre}">
+            <img src="${prod.imagen}" alt="${prod.nombre}">
 
-        <div class="carritoInfo">
-            <h4>${prod.nombre}</h4>
-            <p>Precio unitario: $${prod.precio}</p>
-            <p class="subtotalProducto">
-                Subtotal: $${prod.precio * prod.cantidad}
-            </p>
-        </div>
+            <div class="carritoInfo">
+                <h4>${prod.nombre}</h4>
+                <p class="subtotalProducto">
+                    $${prod.precio.toLocaleString('es-AR')} x ${prod.cantidad}
+                </p>
+            </div>
 
-        
+            <div class="controlesCantidad">
+                <button class="btnMenos" data-id="${prod.id}" ${prod.cantidad === 1 ? "disabled" : ""}>-</button>
+                <span>${prod.cantidad}</span>
+                <button class="btnMas" data-id="${prod.id}">+</button>
+            </div>
 
-        <div class="controlesCantidad">
-            <button class="btnMenos" data-id="${prod.id}" ${prod.cantidad === 1 ? "disabled" : ""}>-</button>
-            <span>${prod.cantidad}</span>
-            <button class="btnMas" data-id="${prod.id}">+</button>
-        </div>
-
-        <button class="btnEliminar" data-id="${prod.id}">🗑</button>
-    `;
+            <button class="btnEliminar" data-id="${prod.id}">Eliminar</button>
+        `;
 
         contenedor.appendChild(div);
     });
 
-    totalSpan.textContent = total;
+
     guardarCarrito();
 }
 

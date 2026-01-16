@@ -1,43 +1,101 @@
 @use "variables" as v;
 
-.carritoFlotante {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1000;
-    width: 60px;
-    height: 60px;
+.modal {
+  display: none; // Se controla con la clase .open
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999;
+
+  &.open {
+    display: block; // Cambiamos a block porque el centrado es por transform
+  }
+}
+
+.modal-content {
+  // TU TRUCO DE CENTRADO (INFALIBLE)
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9); // Empieza un poco más pequeño
+  
+  // ESTILO MODERNO
+  background: v.$Blanco;
+  width: 90%;
+  max-width: 450px;
+  padding: 40px;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  border: 1px solid rgba(v.$Gris, 0.1);
+  transition: all 0.3s ease;
+
+  // Animación cuando se abre: sube al tamaño normal
+  .modal.open & {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    background: v.$Gris;
     border-radius: 50%;
-    background-color: v.$CelesteOscuro;
-    color: v.$BlancoFuerte;
-    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    box-shadow: 0 6px 15px v.$NegroOscuro;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 24px;
+    cursor: pointer;
+    color: v.$Gris;
+    transition: all 0.2s ease;
 
     &:hover {
-        transform: scale(1.1); 
-        background-color: lighten(v.$CelesteOscuro, 5%); 
-        color: v.$BlancoFuerte;
+      background: v.$Rojo;
+      color: v.$Blanco;
+      transform: rotate(90deg);
+    }
+  }
+
+  #modal-titulo {
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: v.$Negro;
+  }
+
+  #modal-descripcion {
+    margin: 0 0 25px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: v.$Gris;
+  }
+
+  // Contenedor para el consumo
+  .info-tag {
+    background: rgba(v.$Verde, 0.1);
+    padding: 15px 20px;
+    border-radius: 18px;
+    
+    h4 {
+      margin: 0 0 5px 0;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: v.$Verde;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
-    .contadorCarrito {
-        position: absolute;
-        top: 0; 
-        right: 0;
-        width: 22px;
-        height: 22px;
-        background-color: v.$Rojo;
-        color: v.$BlancoFuerte;
-        font-size: 11px;
-        font-weight: bold;
-        border-radius: 50%;
-        border: 2px solid v.$CelesteOscuro;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    #modal-consumo {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: v.$Negro;
     }
+  }
 }

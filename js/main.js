@@ -70,6 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
         actualizarContador();
+
+        const contador = document.querySelector(".contadorCarrito");
+        contador.classList.add("pop");
+        setTimeout(() => contador.classList.remove("pop"), 250);
     }
 
     // ===============================

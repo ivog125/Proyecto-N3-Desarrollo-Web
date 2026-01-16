@@ -1,10 +1,10 @@
 @use "variables" as v;
 
 footer {
-    background-color: lightblue;
+    background-color: v.$CelesteClaro;
     padding: 10px;
     text-align: center;
-    font-family: Arvo;
+    font-family: v.$Arvo;
     margin-top: 20px;
 
     .redesSociales {
@@ -15,20 +15,20 @@ footer {
         list-style: none;
         
             li {
-            display: inline-block; // asegura que cada item se comporte como bloque pequeño
+            display: inline-block; 
 
             a {
             display: inline-block;
 
             img {
-                width: 30px;       // tamaño fijo del icono
+                width: 30px;       
                 height: 30px;
-                object-fit: contain; // mantiene proporción
+                object-fit: contain; 
                 display: block;
                 transition: 0.3s;
 
                 &:hover {
-                transform: scale(1.1); // efecto hover opcional
+                transform: scale(1.1); 
                 }
             }
             }

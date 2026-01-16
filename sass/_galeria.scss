@@ -18,9 +18,9 @@
             outline: none;
         }
         #buscador:focus {
-            border-color: #293ee3;
+            border-color: v.$AzulFrancia;
             transition: 0.3s;
-            box-shadow: 0 0 5px rgba(35,81,149,0.5);
+            box-shadow: 0 0 5px v.$AzulGrisacio(35,81,149,0.5);
         }
     }
     
@@ -47,7 +47,7 @@
                 width: 100%;
                 max-width: 180px;
                 height: 180px;
-                object-fit: contain; /* no deforma */
+                object-fit: contain; 
                 border-radius: 8px;
                 margin: 0 auto 10px;
                 display: block;
@@ -91,25 +91,25 @@
             }
             .accionesProducto button:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+                box-shadow: 0 4px 10px v.$Negro;
             }
 
             .btnInfo {
-                background-color: #eaeaea;
-                color: #333;
+                background-color: v.$Blanco;
+                color: v.$Gris;
             }
 
             .btnInfo:hover {
-                background-color: #d5d5d5;
+                background-color: v.$Blanco;
             }
 
             .btnComprar {
-                background-color: #39c3fe;
-                color: #fff;
+                background-color: v.$Celeste;
+                color: v.$Blanco;
             }
 
             .btnComprar:hover {
-                background-color: #2dbef3;
+                background-color: v.$CelesteOscuro;
             }
         }
     }

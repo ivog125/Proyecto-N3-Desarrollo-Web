@@ -1,0 +1,134 @@
+@use "variables" as v;
+
+.mainInicio {
+    background-color: v.$Blanco;
+    overflow-x: hidden;
+
+    // --- HERO SECTION ---
+
+    .hero {
+        position: relative;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        padding: 0 5%;
+        background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                    url('../assets/hero-bg-natural.jpg') center/cover no-repeat;
+        
+        &__content {
+            max-width: 650px;
+            z-index: 2;
+
+            .subtitulo {
+                display: block;
+                color: v.$VerdeOliva;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                animation: fadeInDown 1s ease;
+            }
+
+            h1 {
+                font-family: 'Lora', serif;
+                font-size: clamp(3rem, 8vw, 5rem);
+                color: v.$VerdeOrganico;
+                line-height: 1;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                color: v.$Gris;
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: 15px;
+
+            .btn-principal {
+                padding: 15px 35px;
+                background-color: v.$VerdeOrganico;
+                color: v.$Blanco;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 10px 20px rgba(v.$VerdeOrganico, 0.3);
+                }
+            }
+
+            .btn-secundario {
+                padding: 15px 35px;
+                border: 2px solid v.$VerdeOliva;
+                color: v.$VerdeOliva;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: v.$VerdeOliva;
+                    color: v.$Blanco;
+                }
+            }
+        }
+    }
+
+    // --- FEATURES SECTION ---
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 60px 5%;
+        margin-top: -50px; 
+        z-index: 5;
+        position: relative;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            margin-top: 0;
+        }
+
+        .feature-card {
+            background: v.$Blanco;
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+
+            .icon {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            h3 {
+                color: v.$VerdeOrganico;
+                margin-bottom: 10px;
+            }
+
+            p {
+                color: v.$Gris;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
