@@ -1,7 +1,7 @@
 @use "variables" as v;
 
 .modal {
-  display: none; // Se controla con la clase .open
+  display: none; 
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -12,18 +12,17 @@
   z-index: 999999;
 
   &.open {
-    display: block; // Cambiamos a block porque el centrado es por transform
+    display: block;
   }
 }
 
 .modal-content {
-  // TU TRUCO DE CENTRADO (INFALIBLE)
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9); // Empieza un poco más pequeño
+  transform: translate(-50%, -50%) scale(0.9);
   
-  // ESTILO MODERNO
+
   background: v.$Blanco;
   width: 90%;
   max-width: 450px;
@@ -34,7 +33,6 @@
   border: 1px solid rgba(v.$Gris, 0.1);
   transition: all 0.3s ease;
 
-  // Animación cuando se abre: sube al tamaño normal
   .modal.open & {
     transform: translate(-50%, -50%) scale(1);
   }
@@ -76,7 +74,7 @@
     color: v.$Gris;
   }
 
-  // Contenedor para el consumo
+
   .info-tag {
     background: rgba(v.$Verde, 0.1);
     padding: 15px 20px;
