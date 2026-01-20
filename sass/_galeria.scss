@@ -30,12 +30,13 @@
 }
 
 .galeria {
-    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
     gap: 20px;
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
-    grid-template-columns: 1fr;
+    
 
     @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
@@ -84,7 +85,7 @@
         }
 
         .accionesProducto {
-            display: flex;
+            display: grid;
             gap: 10px;
             margin-top: auto;
 
@@ -127,16 +128,3 @@
     }
 }
 
-@media (max-width: 600px) {
-    body {
-        background-color: red !important;
-    }
-    .galeria {
-        display: block !important;
-    }
-    .producto {
-        width: 100% !important;
-        margin-bottom: 20px !important;
-        display: block !important;
-    }
-}

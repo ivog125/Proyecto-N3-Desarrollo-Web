@@ -4,7 +4,6 @@
     background-color: v.$Blanco;
     overflow-x: hidden;
 
-    // --- HERO SECTION ---
 
     .hero {
         position: relative;
@@ -12,7 +11,7 @@
         display: flex;
         align-items: center;
         padding: 0 5%;
-        background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+        background: linear-gradient(v.$BlancoFuerte, v.$Blanco), 
                     url('../assets/hero-bg-natural.jpg') center/cover no-repeat;
         
         &__content {
@@ -81,7 +80,6 @@
         }
     }
 
-    // --- FEATURES SECTION ---
 
     .features {
         display: grid;

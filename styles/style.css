@@ -18,40 +18,56 @@ body {
 .mainTienda .buscadorSeccion {
   text-align: center;
   margin: 20px 0;
+  padding: 0 15px;
 }
 .mainTienda .buscadorSeccion #buscador {
-  width: 80%;
+  width: 100%;
   max-width: 400px;
-  padding: 10px 15px;
+  padding: 12px 15px;
   border: 2px solid #2dbef3;
   border-radius: 25px;
   outline: none;
+  box-sizing: border-box;
 }
 .mainTienda .buscadorSeccion #buscador:focus {
   border-color: #293ee3;
   transition: 0.3s;
-  box-shadow: 0 0 5px rgba(57, 195, 254, 0.4) 35, 81, 149, 0.5;
+  box-shadow: 0 0 5px rgba(57, 195, 254, 0.4);
 }
-.mainTienda .galeria {
+
+.galeria {
+  grid-template-columns: repeat(2, 1fr);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
 }
-.mainTienda .galeria .producto {
+@media (min-width: 768px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.galeria .producto {
   background-color: #f8f8f8;
   border: 1px solid #999;
   border-radius: 10px;
+  width: 100%;
   padding: 15px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  width: 100%;
   box-sizing: border-box;
+  transition: transform 0.3s;
 }
-.mainTienda .galeria .producto .imagenProducto {
+.galeria .producto:hover {
+  transform: translateY(-5px);
+}
+.galeria .producto .imagenProducto {
   width: 100%;
   max-width: 180px;
   height: 180px;
@@ -60,56 +76,52 @@ body {
   margin: 0 auto 10px;
   display: block;
 }
-.mainTienda .galeria .producto .infoProducto {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.galeria .producto h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #000;
 }
-.mainTienda .galeria .producto .imagenProducto h3, .mainTienda .galeria .producto p {
+.galeria .producto p {
   font-size: 1rem;
-  margin: 5px 0;
-  text-align: center;
+  color: #444;
+  margin-bottom: 15px;
 }
-.mainTienda .galeria .producto .accionesProducto {
-  display: flex;
+.galeria .producto .accionesProducto {
+  display: grid;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: auto;
 }
-.mainTienda .galeria .producto .accionesProducto button {
+@media (max-width: 400px) {
+  .galeria .producto .accionesProducto {
+    flex-direction: flex;
+  }
+}
+.galeria .producto .accionesProducto button {
   flex: 1;
-  padding: 10px 12px;
+  padding: 12px;
   border: none;
   border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
-.mainTienda .galeria .producto .accionesProducto button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px #000;
-}
-.mainTienda .galeria .producto .btnInfo {
+.galeria .producto .accionesProducto .btn-saber-mas {
   background-color: #f8f8f8;
   color: #444;
+  border: 1px solid #999;
 }
-.mainTienda .galeria .producto .btnInfo:hover {
-  background-color: #f8f8f8;
+.galeria .producto .accionesProducto .btn-saber-mas:hover {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.mainTienda .galeria .producto .btnComprar {
+.galeria .producto .accionesProducto .btnComprar {
   background-color: #39c3fe;
   color: #f8f8f8;
 }
-.mainTienda .galeria .producto .btnComprar:hover {
+.galeria .producto .accionesProducto .btnComprar:hover {
   background-color: #2dbef3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -153,7 +165,7 @@ footer .redesSociales li a img:hover {
   display: flex;
   align-items: center;
   padding: 0 5%;
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("../assets/hero-bg-natural.jpg") center/cover no-repeat;
+  background: linear-gradient(#ffffff, #f8f8f8), url("../assets/hero-bg-natural.jpg") center/cover no-repeat;
 }
 .mainInicio .hero__content {
   max-width: 650px;
@@ -772,7 +784,7 @@ footer .redesSociales li a img:hover {
 
 .formContacto {
   background-color: #ffffff;
-  padding: 2.5rem;
+  padding: 3.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px #000;
   display: flex;
