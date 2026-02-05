@@ -1,8 +1,6 @@
 // ===============================
-//        CARRITO DE COMPRAS
+//        ESTADO DEL CARRITO
 // ===============================
-
-// Estado del carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // ===============================
@@ -18,19 +16,24 @@ function renderCarrito() {
     let total = 0;
 
     if (carrito.length === 0) {
-        contenedor.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
+        contenedor.innerHTML = `
+            <div class="carritoVacio" data-aos="fade-in">
+                <p>Tu carrito está vacío 🛒</p>
+                <a href="./tienda.html" class="btnSeguir">Ir a la tienda</a>
+            </div>`;
         totalSpan.textContent = 0;
         return;
     }
 
- carrito.forEach(prod => {
-    const subtotal = prod.precio * prod.cantidad;
-    total += subtotal;
+    carrito.forEach(prod => {
+        const subtotal = prod.precio * prod.cantidad;
+        total += subtotal;
 
-    const div = document.createElement("div");
-    div.className = "carritoItem";
+        const div = document.createElement("div");
+        div.className = "carritoItem";
+        div.setAttribute("data-aos", "fade-right"); // Animación AOS al cargar items
 
-    div.innerHTML = `
+        div.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}">
 
             <div class="carritoInfo">
@@ -46,21 +49,22 @@ function renderCarrito() {
                 <button class="btnMas" data-id="${prod.id}">+</button>
             </div>
 
-            <button class="btnEliminar" data-id="${prod.id}">Eliminar</button>
+            <button class="btnEliminar" data-id="${prod.id}" aria-label="Eliminar ${prod.nombre}">Eliminar</button>
         `;
 
         contenedor.appendChild(div);
     });
 
-
+    totalSpan.textContent = total.toLocaleString('es-AR');
     guardarCarrito();
 }
 
 // ===============================
-// EVENTOS + / - / ELIMINAR
+// EVENTOS + / - / ELIMINAR / VACIAR
 // ===============================
 document.addEventListener("click", (e) => {
 
+    // Lógica para aumentar cantidad
     if (e.target.classList.contains("btnMas")) {
         const id = e.target.dataset.id;
         const prod = carrito.find(p => p.id === id);
@@ -70,6 +74,7 @@ document.addEventListener("click", (e) => {
         }
     }
 
+    // Lógica para disminuir cantidad
     if (e.target.classList.contains("btnMenos")) {
         const id = e.target.dataset.id;
         const prod = carrito.find(p => p.id === id);
@@ -79,30 +84,61 @@ document.addEventListener("click", (e) => {
         }
     }
 
+    // Eliminar un producto específico
     if (e.target.classList.contains("btnEliminar")) {
         const id = e.target.dataset.id;
         carrito = carrito.filter(p => p.id !== id);
         renderCarrito();
     }
 
+    // Vaciar todo el carrito (Con SweetAlert2)
     if (e.target.classList.contains("btnVaciar")) {
-        carrito = [];
-        localStorage.removeItem("carrito");
-        renderCarrito();
-        actualizarContador();
+        if (carrito.length === 0) return;
+
+        Swal.fire({
+            title: "¿Vaciar carrito?",
+            text: "Esta acción no se puede deshacer.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2c3e50",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, vaciar",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                carrito = [];
+                localStorage.removeItem("carrito");
+                renderCarrito();
+                actualizarContador();
+                Swal.fire({
+                    title: "¡Vaciado!",
+                    icon: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                });
+            }
+        });
     }
 });
 
 // ===============================
-// GUARDAR CARRITO
+// GUARDAR Y ACTUALIZAR
 // ===============================
 function guardarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarContador();
 }
 
+function actualizarContador() {
+    const contador = document.querySelector(".contadorCarrito");
+    if (!contador) return;
+
+    const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+    contador.textContent = total;
+}
+
 // ===============================
-// AGREGAR PRODUCTO DESDE TIENDA
+// AGREGAR PRODUCTO (Desde Tienda)
 // ===============================
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
@@ -123,35 +159,35 @@ function agregarAlCarrito(id) {
     }
 
     guardarCarrito();
+
+    // Notificación Toast (Dinamismo Punto 2)
+    Swal.fire({
+        text: `${producto.nombre} agregado al carrito`,
+        icon: "success",
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true
+    });
 }
-
-// ===============================
-// CONTADOR FLOTANTE
-// ===============================
-function actualizarContador() {
-    const contador = document.querySelector(".contadorCarrito");
-    if (!contador) return;
-
-    const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
-    contador.textContent = total;
-}
-
-// ===============================
-// INICIALIZACIÓN
-// ===============================
-actualizarContador();
-renderCarrito();
 
 // ==================
-//  BOTON COMPRAR
+//  BOTÓN COMPRAR (WhatsApp)
 //===================
-
 const btnComprar = document.getElementById("btnComprar");
 
 if (btnComprar) {
-    btnComprar.addEventListener("click", () => {
+    btnComprar.addEventListener("click", (e) => {
+        e.preventDefault();
+
         if (carrito.length === 0) {
-            alert("Tu carrito está vacío");
+            Swal.fire({
+                title: "Carrito vacío",
+                text: "Agrega algún producto para continuar",
+                icon: "info",
+                confirmButtonColor: "#2c3e50"
+            });
             return;
         }
 
@@ -159,16 +195,14 @@ if (btnComprar) {
         mensaje += "🛒 *Pedido Tienda Ross*%0A";
 
         let total = 0;
-
         carrito.forEach(prod => {
             const subtotal = prod.precio * prod.cantidad;
             total += subtotal;
-
             mensaje += `- ${prod.nombre} x${prod.cantidad} — $${subtotal}%0A`;
         });
 
         mensaje += `%0A💰 *Total: $${total}*%0A%0A`;
-        mensaje += "Quedo atento/a para coordinar el pago y la entrega. ¡Gracias!";
+        mensaje += "Quedo atento/a para coordinar el pago. ¡Gracias!";
 
         const telefono = "5491138677830"; 
         const url = `https://wa.me/${telefono}?text=${mensaje}`;
@@ -176,3 +210,11 @@ if (btnComprar) {
         window.open(url, "_blank");
     });
 }
+
+// ===============================
+// INICIALIZACIÓN
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarContador();
+    renderCarrito();
+});
