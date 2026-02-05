@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Ross - Productos</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../styles/style.css?v=1
-">
+    <title>Catálogo de Productos Orgánicos | Tienda Ross</title>
+    <meta name="description" content="Explora nuestra selección de productos sustentables: cosmética natural, alimentos orgánicos y más. Calidad certificada en Tienda Ross.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css?v=1">
 </head>
 
 <body>
 
 <header class="encabezadoTienda">
-    <nav>
+    <nav aria-label="Navegación principal">
         <ul class="menuTienda">
             <li>
                 <a href="../index.html">
-                    <img src="../assets/TIENDA ROSS.jpeg" alt="logoTienda" class="logoTienda">
+                    <img src="../assets/TIENDA ROSS.jpeg" alt="Ir al inicio - Tienda Ross" class="logoTienda">
                 </a>
             </li>
-            <li><a href="../pages/tienda.html">Productos</a></li>
-            <li><a href="../pages/contacto.html">Contacto</a></li>
+            <li><a href="../pages/tienda.html" aria-current="page">Productos</a></li> <li><a href="../pages/contacto.html">Contacto</a></li>
             <li><a href="../pages/nosotros.html">Saber más</a></li>
         </ul>
     </nav>
@@ -30,31 +28,26 @@
 
 <main class="mainTienda">
 
-    <h2 class="tituloTienda">Galería de Productos</h2>
+    <h1 class="tituloTienda">Galería de Productos Orgánicos</h1>
 
-    <section>
-        <p>
+    <section aria-labelledby="intro-tienda">
+        <p id="intro-tienda">
             Aquí podrás ver una variedad de productos disponibles en nuestro almacén.
             Explora nuestra colección y encuentra el producto ideal para vos.
         </p>
     </section>
 
-    <section class="buscadorSeccion">
-        <input type="text" id="buscador" placeholder="Buscar producto..." />
+    <section class="buscadorSeccion" role="search">
+        <label for="buscador" class="visually-hidden" style="display:none;">Buscar productos</label>
+        <input type="text" id="buscador" placeholder="Ej: Jabón de coco..." aria-label="Buscar productos en la tienda">
     </section>
 
-    <!-- CONTENEDOR DE PRODUCTOS -->
-
-    <section class="galeria" id="galeriaProductos">
-
-        <!-- Los productos se generan desde JavaScript -->
-
-    </section>
+    <section class="galeria" id="galeriaProductos" aria-live="polite">
+        </section>
 
     <section>
         <p>
-            Para realizar una compra u obtener más información, no dudes en contactarnos
-            a través de la página de contacto.
+            Para realizar una compra u obtener más información, no dudes en <a href="contacto.html">contactarnos</a>.
         </p>
     </section>
 
@@ -62,52 +55,45 @@
 
 <footer>
     <p>&copy; 2024 Tienda Ross. Todos los derechos reservados.</p>
-    <h3>Creado por IvoG12</h3>
+    <p>Creado por <strong>IvoG12</strong></p>
 
-    <nav>
+    <nav aria-label="Redes sociales">
         <ul class="redesSociales">
             <li>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="../assets/Instagram_logo_2022.svg.png" alt="Instagram">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">
+                    <img src="../assets/Instagram_logo_2022.svg.png" alt="Instagram" loading="lazy">
                 </a>
             </li>
             <li>
-                <a href="https://www.facebook.com/" target="_blank">
-                    <img src="../assets/2023_Facebook_icon.svg.png" alt="Facebook">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Síguenos en Facebook">
+                    <img src="../assets/2023_Facebook_icon.svg.png" alt="Facebook" loading="lazy">
                 </a>
             </li>
             <li>
-                <a href="https://www.web.whatsapp.com/" target="_blank">
-                    <img src="/assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="WhatsApp">
+                <a href="https://www.web.whatsapp.com/" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+                    <img src="/assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="WhatsApp" loading="lazy">
                 </a>
             </li>
         </ul>
     </nav>
 </footer>
 
-<!-- CARRITO -->
-
-<a href="./carrito.html" class="carritoFlotante">
-    🛒
+<a href="./carrito.html" class="carritoFlotante" aria-label="Ver mi carrito de compras">
+    <span aria-hidden="true">🛒</span>
     <span class="contadorCarrito">0</span>
 </a>
 
-<!-- MODAL -->
-
-<div id="modal" class="modal">
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <button class="close" aria-label="Cerrar ventana">&times;</button>
     <h2 id="modal-titulo"></h2>
     <p id="modal-descripcion"></p>
-    <h4>¿Cómo se consume?</h4>
+    <h3>¿Cómo se consume?</h3>
     <p id="modal-consumo"></p>
   </div>
 </div>
 
-<!-- TOAST -->
- <div id="toast-container" class="toast-container"></div>
-
-<!-- SCRIPTS -->
+<div id="toast-container" class="toast-container" aria-live="assertive"></div>
 
 <script src="../js/main.js"></script>
 <script src="../js/carrito.js"></script>

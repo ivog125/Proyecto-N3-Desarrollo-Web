@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito | Tienda Ross</title>
+    
+    <title>Tu Carrito de Compras | Tienda Ross</title>
+    <meta name="robots" content="noindex, nofollow">
+
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 
 <header class="encabezadoTienda">
-    <nav>
+    <nav aria-label="Navegación principal">
         <ul class="menuTienda">
             <li>
                 <a href="../index.html">
-                    <img src="../assets/TIENDA ROSS.jpeg" class="logoTienda" alt="Logo">
+                    <img src="../assets/TIENDA ROSS.jpeg" class="logoTienda" alt="Ir al inicio - Tienda Ross">
                 </a>
             </li>
             <li><a href="./tienda.html">Productos</a></li>
@@ -25,25 +28,27 @@
 
 <main class="mainCarrito">
 
-    <h1>Tu carrito</h1>
+    <h1>Resumen de tu compra</h1>
 
-    <!-- ACÁ se renderizan los productos -->
-    <div id="carritoContenedor"></div>
+    <div id="carritoContenedor" aria-live="polite" aria-atomic="true">
+        </div>
 
    <div class="resumenCarrito">
-        <h2>Total: $<span id="totalCarrito">0</span></h2>
+        <h2 aria-live="polite">Total a pagar: $<span id="totalCarrito">0</span></h2>
 
         <div class="accionesCarrito">
-            <a href="#" id="btnComprar" class="btnComprarFinal">Comprar por WhatsApp</a>
+            <a href="#" id="btnComprar" class="btnComprarFinal" rel="noopener" aria-label="Finalizar compra por WhatsApp">Comprar por WhatsApp</a>
+            
             <a href="./tienda.html" class="btnSeguir">Seguir comprando</a>
-            <button id="vaciarCarrito" class="btnVaciar">Vaciar carrito</button>
+            
+            <button id="vaciarCarrito" class="btnVaciar" aria-label="Eliminar todos los productos del carrito">Vaciar carrito</button>
         </div>
     </div>
 
 </main>
 
 <footer>
-    <p>&copy; 2024 Tienda Ross</p>
+    <p>&copy; 2024 Tienda Ross. Todos los derechos reservados.</p>
 </footer>
 
 <script src="../js/productos.js"></script>

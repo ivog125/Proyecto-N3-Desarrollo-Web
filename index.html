@@ -1,92 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Ross - Inicio</title>
-
-    <link rel="shortcut icon" href="/assets/TIENDA ROSS.jpeg" type="image/x-icon">
-
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./styles/style.css">
     
+    <title>Tienda Ross | Productos Orgánicos y Sustentables</title>
+    <meta name="description" content="Descubrí en Tienda Ross una curaduría exclusiva de productos 100% orgánicos, cruelty free y con eco-packaging. Calidad consciente para tu bienestar.">
+    <meta name="keywords" content="productos orgánicos, sustentable, cruelty free, tienda natural, eco-friendly">
+    <link rel="canonical" href="https://tuweb.com/index.html">
+
+    <meta property="og:title" content="Tienda Ross - Estilo de vida Sustentable">
+    <meta property="og:description" content="Productos orgánicos diseñados para tu bienestar y el del planeta.">
+    <meta property="og:image" content="https://tuweb.com/assets/TIENDA-ROSS-OG.jpeg">
+    <meta property="og:type" content="website">
+
+    <link rel="shortcut icon" href="./assets/TIENDA ROSS.jpeg" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <header class="encabezadoTienda" id="encabezadoTienda">
-        <nav>
-            <ul class="menuTienda">
-                <li>
-                    <a href="./index.html">
-                        <img src="./assets/TIENDA ROSS.jpeg" alt="logoTienda" class="logoTienda">
-                    </a>
-                </li>
-                <li><a href="pages/tienda.html">Productos</a></li>
-                <li><a href="pages/contacto.html">Contacto</a></li>
-                <li><a href="pages/nosotros.html">Saber más</a></li>
-            </ul>
-        </nav>
+        <ul class="menuTienda" role="navigation" aria-label="Menú principal">
+            <li>
+                <a href="./index.html">
+                    <img src="./assets/TIENDA ROSS.jpeg" alt="Logo de Tienda Ross" class="logoTienda">
+                </a>
+            </li>
+            <li><a href="pages/tienda.html">Productos</a></li>
+            <li><a href="pages/contacto.html">Contacto</a></li>
+            <li><a href="pages/nosotros.html">Saber más</a></li>
+        </ul>
     </header>
 
-  <main class="mainInicio"> 
-    <section class="hero">
-        <div class="hero__content">
-            <span class="subtitulo">Sustentable & Consciente</span>
-            <h1>Bienvenido a Tienda Ross</h1>
-            <p>Descubrí el poder de lo natural con nuestra curaduría de productos orgánicos diseñados para tu bienestar y el del planeta.</p>
-            <div class="hero__actions">
-                <a href="./pages/tienda.html" class="btn-principal">Explorar Tienda</a>
-                <a href="./pages/nosotros.html" class="btn-secundario">Nuestra Historia</a>
+    <main class="mainInicio"> 
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__content">
+                <span class="subtitulo">Sustentable & Consciente</span>
+                <h1 id="hero-title">Bienvenido a Tienda Ross</h1>
+                <p>Descubrí el poder de lo natural con nuestra curaduría de productos orgánicos diseñados para tu bienestar y el del planeta.</p>
+                <div class="hero__actions">
+                    <a href="./pages/tienda.html" class="btn-principal">Explorar Tienda</a>
+                    <a href="./pages/nosotros.html" class="btn-secundario">Nuestra Historia</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="features">
-        <div class="feature-card">
-            <span class="icon">🌿</span>
-            <h3>100% Orgánico</h3>
-            <p>Certificado sin químicos.</p>
-        </div>
-        <div class="feature-card">
-            <span class="icon">🐰</span>
-            <h3>Cruelty Free</h3>
-            <p>No testeado en animales.</p>
-        </div>
-        <div class="feature-card">
-            <span class="icon">♻️</span>
-            <h3>Eco-Packaging</h3>
-            <p>Envases compostables.</p>
-        </div>
-    </section>
-</main>
+        <section class="features" aria-label="Características de nuestros productos">
+            <div class="feature-card">
+                <span class="icon" aria-hidden="true">🌿</span> <h3>100% Orgánico</h3>
+                <p>Certificado sin químicos.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon" aria-hidden="true">🐰</span>
+                <h3>Cruelty Free</h3>
+                <p>No testeado en animales.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon" aria-hidden="true">♻️</span>
+                <h3>Eco-Packaging</h3>
+                <p>Envases compostables.</p>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 Tienda Ross. Todos los derechos reservados.</p>
-        <p>Creado por IvoG12</p>
+        <p>Creado por <strong>IvoG12</strong></p>
 
-        <nav>
-            <ul  class="redesSociales">
+        <nav aria-label="Redes sociales">
+            <ul class="redesSociales">
                 <li>
-                    <a href="https://www.instagram.com/" target="_blank">
-                        <img src="./assets/Instagram_logo_2022.svg.png" alt="logo de Instagram" class="">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visitar nuestro Instagram">
+                        <img src="./assets/Instagram_logo_2022.svg.png" alt="Instagram" loading="lazy">
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/" target="_blank">
-                        <img src="./assets/2023_Facebook_icon.svg.png" alt="logo de Facebook" class="">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visitar nuestro Facebook">
+                        <img src="./assets/2023_Facebook_icon.svg.png" alt="Facebook" loading="lazy">
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.web.whatsapp.com/" target="_blank">
-                        <img src="./assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="logo de WhatsApp" class="">
+                    <a href="https://www.web.whatsapp.com/" target="_blank" rel="noopener" aria-label="Contactarnos por WhatsApp">
+                        <img src="./assets/pngtree-whatsapp-icon-png-image_3584844.jpg" alt="WhatsApp" loading="lazy">
                     </a>
                 </li>
             </ul>
         </nav>
     </footer>
 
-    <a href="pages/carrito.html" class="carritoFlotante">
-        🛒
+    <a href="pages/carrito.html" class="carritoFlotante" aria-label="Ver carrito de compras, tienes un artículo">
+        <span aria-hidden="true">🛒</span>
         <span class="contadorCarrito">0</span>
     </a>
     
